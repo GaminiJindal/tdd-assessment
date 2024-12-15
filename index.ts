@@ -1,3 +1,5 @@
+// function to add numbers on string separated by any delimiter and throwing exception for all  negative numbers
+
 function add(numbers:string){
     let sum:number=0;
    let char:string="";
