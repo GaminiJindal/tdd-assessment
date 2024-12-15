@@ -1,31 +1,34 @@
-
 function add(numbers:string){
     let sum:number=0;
    let char:string="";
+   let negativeElements:number[]=[];
    for(let i=0;i<numbers.length;i++){
        char=char+numbers[i];
        const finalElement=parseInt(char)
        if(!isNaN(finalElement) ){
-           if(finalElement>0){
            if(!isNaN(parseInt(numbers[i+1]))){
                continue;
-           }else{
+           }
+           if(finalElement>0){
            sum=sum+finalElement;
-           }  
            }else{
-               throw(`negative numbers not allowed ${finalElement}`)
-               return;
+               negativeElements.push(finalElement)
            }
        }
            if(char!=="-"){
-            char="";
+                       char="";
            }
-
    }
-   return sum;
+   if(negativeElements.length>0){
+       throw(`negative numbers not allowed ${negativeElements.join(",")}`)
+               return; 
+   }else{
+       return sum;
+   }
+   
 }
 
 
-const result=add("//;\n1;2");
+const result=add("1\n2,3");
 
 console.log(result,"resultresult")
