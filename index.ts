@@ -1,20 +1,29 @@
-// Online Javascript Editor for free
-// Write, Edit and Run your Javascript code using JS Online Compiler
-
- function add( numbers:string){
-    let sum=0
-   
-   for(let char of numbers){
-       console.log(char,"egdngdnb")
-       if(!isNaN(parseInt(char))){
-           sum=sum+parseInt(char)
+function add(numbers:string){
+    let sum=0;
+   let char="";
+   for(let i=0;i<numbers.length;i++){
+       char=char+numbers[i];
+       const number=parseInt(char)
+       if(!isNaN(number) ){
+           if(number>0){
+           if(!isNaN(parseInt(numbers[i+1]))){
+               continue;
+           }else{
+           sum=sum+number;
+           }  
+           }else{
+               throw(`negative numbers not allowed ${number}`)
+               return;
+           }
+           
        }
-       
+       char="";
+
    }
-   return sum
+   return sum;
 }
 
 
-const result=add("1,7,8,9,67")
+const result=add("-1,5");
 
 console.log(result,"resultresult")
