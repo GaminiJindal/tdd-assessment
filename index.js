@@ -1,11 +1,18 @@
 // function to add numbers on string separated by any delimiter and throwing exception for all  negative numbers
 
-function add(numbers:string){
-    let sum:number=0;
-   let char:string="";
-   let negativeElements:number[]=[];
+function add(numbers){
+    //sum variable is in which sum gets stored
+    let sum=0;
+    //char variable is for each character in string numbers
+   let char="";
+    //negativeElements is an array in which all -ve elements gets pushed
+
+   let negativeElements=[];
    for(let i=0;i<numbers.length;i++){
+        //char is having 6 initially and adding 7 into it to make it 67 so that it can be added as 67 rather than 6 and 7 separately
        char=char+numbers[i];
+    //finalElement converts char string type into integer
+
        const finalElement=parseInt(char);
        //This is to skip delimiter
        if(!isNaN(finalElement) ){
@@ -30,6 +37,7 @@ function add(numbers:string){
        throw(`negative numbers not allowed ${negativeElements.join(",")}`)
                return; 
    }else{
+    // return sum if no error
        return sum;
    }
    
